@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/prakashjpn1-star/gatetrellis/schemas/decision-sample.schema.json",
+  "title": "Bounded data-plane decision sample",
+  "type": "object",
+  "properties": {
+    "correlationId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "tenantId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "route": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "policyVersion": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "outcome": {
+      "enum": [
+        "QUOTA_REJECTED",
+        "OVERLOAD_REJECTED",
+        "CIRCUIT_OPEN",
+        "UPSTREAM_TIMEOUT",
+        "UPSTREAM_ERROR",
+        "CACHE_HIT",
+        "FORWARDED_SUCCESS",
+        "CLIENT_DISCONNECT",
+        "INVALID"
+      ]
+    },
+    "status": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 599
+    },
+    "elapsedMs": {
+      "type": "number",
+      "minimum": 0
+    },
+    "upstreamAttempts": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2
+    }
+  },
+  "required": [
+    "correlationId",
+    "tenantId",
+    "route",
+    "policyVersion",
+    "outcome",
+    "status",
+    "elapsedMs",
+    "upstreamAttempts"
+  ],
+  "additionalProperties": false
+}

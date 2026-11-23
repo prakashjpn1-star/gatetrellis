@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/prakashjpn1-star/gatetrellis/schemas/activate.schema.json",
+  "title": "Revision-checked policy activation",
+  "type": "object",
+  "properties": {
+    "expectedRevision": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2048
+    }
+  },
+  "required": [
+    "expectedRevision"
+  ],
+  "additionalProperties": false
+}

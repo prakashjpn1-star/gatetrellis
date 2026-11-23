@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/prakashjpn1-star/gatetrellis/schemas/route-policy.schema.json",
+  "title": "Versioned complete route policy",
+  "type": "object",
+  "properties": {
+    "route": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "methods": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "GET",
+          "HEAD",
+          "POST",
+          "PUT",
+          "PATCH",
+          "DELETE"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 6,
+      "uniqueItems": true
+    },
+    "pathPrefix": {
+      "type": "string",
+      "pattern": "^/",
+      "maxLength": 256
+    },
+    "priority": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "upstreamIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      },
+      "minItems": 1,
+      "maxItems": 100,
+      "uniqueItems": true
+    },
+    "deadlineMs": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "maxInFlight": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "maxQueue": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "maxQueueBytes": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "queueWaitMs": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 50
+    },
+    "quota": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "enum": [
+              "TENANT",
+              "ROUTE",
+              "TENANT_ROUTE"
+            ]
+          },
+          "ratePerSecond": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "burst": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "scope",
+          "ratePerSecond",
+          "burst"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1,
+      "maxItems": 3
+    },
+    "retryMaxAdditionalAttempts": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "cachePublic": {
+      "type": "boolean"
+    },
+    "cache": {
+      "type": "object",
+      "properties": {
+        "maxEntryBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65536
+        },
+        "maxTotalBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "freshSeconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "staleSeconds": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "maxEntryBytes",
+        "maxTotalBytes",
+        "freshSeconds",
+        "staleSeconds"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "route",
+    "methods",
+    "pathPrefix",
+    "priority",
+    "upstreamIds",
+    "deadlineMs",
+    "maxInFlight",
+    "maxQueue",
+    "maxQueueBytes",
+    "queueWaitMs",
+    "quota",
+    "retryMaxAdditionalAttempts",
+    "cachePublic"
+  ],
+  "additionalProperties": false
+}

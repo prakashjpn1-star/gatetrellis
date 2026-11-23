@@ -1,0 +1,7 @@
+{
+  "upstreamId": "fast-1",
+  "host": "127.0.0.1",
+  "port": 9101,
+  "maxInFlight": 20,
+  "fixture": "FAST_CATALOGUE"
+}

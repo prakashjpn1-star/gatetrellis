@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/prakashjpn1-star/gatetrellis/schemas/policy-document.schema.json",
+  "title": "Immutable multi-route policy document",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "$ref": "route-policy.schema.json"
+      },
+      "minItems": 1,
+      "maxItems": 100
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "routes"
+  ],
+  "additionalProperties": false
+}

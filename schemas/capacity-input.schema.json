@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/prakashjpn1-star/gatetrellis/schemas/capacity-input.schema.json",
+  "title": "Explicit analytical capacity assumptions",
+  "type": "object",
+  "properties": {
+    "population": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "arrivalWindowSeconds": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "pollIntervalSeconds": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "updateBytes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "updatesPerSecond": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "connectionStateBytes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "reconnectFraction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "reconnectWindowSeconds": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "responseBytes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "requestsPerMinute": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "cacheHitFraction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "usableFraction": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 1
+    },
+    "failureReserveNodes": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "measuredPerNodeRequestsPerSecond": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "measuredPerNodeEgressBytesPerSecond": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "measuredPerNodeConnections": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    }
+  },
+  "required": [
+    "population",
+    "usableFraction",
+    "failureReserveNodes"
+  ],
+  "additionalProperties": false
+}

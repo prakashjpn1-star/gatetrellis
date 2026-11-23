@@ -1,0 +1,8 @@
+{
+  "population": 1,
+  "requestsPerMinute": 10000000,
+  "responseBytes": 2048,
+  "cacheHitFraction": 0.9,
+  "usableFraction": 0.6,
+  "failureReserveNodes": 1
+}

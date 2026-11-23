@@ -1,0 +1,32 @@
+{
+  "route": "catalogue",
+  "methods": [
+    "GET"
+  ],
+  "pathPrefix": "/catalogue",
+  "priority": 100,
+  "upstreamIds": [
+    "fast-1",
+    "slow-1"
+  ],
+  "deadlineMs": 1000,
+  "maxInFlight": 20,
+  "maxQueue": 40,
+  "maxQueueBytes": 262144,
+  "queueWaitMs": 50,
+  "quota": [
+    {
+      "scope": "TENANT_ROUTE",
+      "ratePerSecond": 100,
+      "burst": 100
+    }
+  ],
+  "retryMaxAdditionalAttempts": 1,
+  "cachePublic": true,
+  "cache": {
+    "maxEntryBytes": 65536,
+    "maxTotalBytes": 8388608,
+    "freshSeconds": 10,
+    "staleSeconds": 0
+  }
+}

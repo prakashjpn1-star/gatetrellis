@@ -1,0 +1,6 @@
+{
+  "fixtureId": "slow-1",
+  "mode": "DELAY",
+  "delayMs": 1500,
+  "durationSeconds": 30
+}

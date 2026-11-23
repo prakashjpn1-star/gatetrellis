@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/prakashjpn1-star/gatetrellis/schemas/upstream.schema.json",
+  "title": "Registered fixture target",
+  "type": "object",
+  "properties": {
+    "upstreamId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "host": {
+      "enum": [
+        "127.0.0.1",
+        "::1"
+      ]
+    },
+    "port": {
+      "type": "integer",
+      "minimum": 1024,
+      "maximum": 65535
+    },
+    "maxInFlight": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "fixture": {
+      "enum": [
+        "FAST_CATALOGUE",
+        "SLOW_CATALOGUE",
+        "MUTATION_COUNTER"
+      ]
+    }
+  },
+  "required": [
+    "upstreamId",
+    "host",
+    "port",
+    "maxInFlight",
+    "fixture"
+  ],
+  "additionalProperties": false
+}
